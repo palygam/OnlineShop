@@ -1,0 +1,7 @@
+1,Happy Santa Gift Box, 20.00
+2,Happy New Year Gift Box, 23.90
+3,Merry Christmas Gift Box, 32.80
+4,Funny Rabbit Gift Box, 16.90
+5,Chocolate Egg Gift Box, 18.49
+6,Christmas Eve Gift Box, 21.45
+7,Christmas Deer Gift Box, 34.20
