@@ -1,14 +1,14 @@
-package OnlineShop;
+package onlineShop;
 
-public class Item {
+public class ShopItem {
     private int id;
     private String name;
     private double price;
 
-    public Item() {
+    public ShopItem() {
     }
 
-    public Item(int id, String name, double price) {
+    public ShopItem(int id, String name, double price) {
         this.id = id;
         this.name = name;
         this.price = price;

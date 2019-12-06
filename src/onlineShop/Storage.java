@@ -1,50 +1,47 @@
-package OnlineShop;
+package onlineShop;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class Storage {
-    private static Map<Integer, User> users = new HashMap<>();
-    private static Map<Integer, Item> items = new HashMap<>();
-    private static List<Item> cart = new ArrayList<>();
-    private static Map<User, List> fullCart = new HashMap<>();
 
-    public static Map<Integer, User> getUsers() {
+public class Storage {
+    private static final String usersFilePath = "C:\\Users\\Mariia_Palyga\\IdeaProjects\\OnlineShop\\resources\\users.txt";
+    private static final String itemsFilePath = "C:\\Users\\Mariia_Palyga\\IdeaProjects\\OnlineShop\\resources\\items.txt";
+
+
+    private static Map<Integer, String> users = new HashMap<>();
+    private static Map<Integer, ShopItem> items = new HashMap<>();
+    private static List<ShopItem> cart = new ArrayList<>();
+
+
+    public static Map<Integer, String> getUsers() {
         return users;
     }
 
-    public static void setUsers(Map<Integer, User> users) {
+    public static void setUsers(Map<Integer, String> users) {
         Storage.users = users;
     }
 
-    public static Map<Integer, Item> getItems() {
+    public static Map<Integer, ShopItem> getItems() {
         return items;
     }
 
-    public static void setItems(Map<Integer, Item> items) {
+    public static void setItems(Map<Integer, ShopItem> items) {
         Storage.items = items;
     }
 
-    public static List<Item> getCart() {
+    public static List<ShopItem> getCart() {
         return cart;
     }
 
-    public static void setCart(List<Item> cart) {
+    public static void setCart(List<ShopItem> cart) {
         Storage.cart = cart;
     }
 
-    public static Map<User, List> getFullCart() {
-        return fullCart;
-    }
-
-    public static void setFullCart(Map<User, List> fullCart) {
-        Storage.fullCart = fullCart;
-    }
-
-    public Map<Integer, User> readUsersFile() {
+    public Map<Integer, String> readUsersFile() {
         try {
-            Scanner scanner = new Scanner(new File("src/users.txt"));
+            Scanner scanner = new Scanner(new File(usersFilePath));
             while (scanner.hasNext()) {
                 User user = new User();
                 String nextLine = scanner.nextLine();
@@ -57,7 +54,7 @@ public class Storage {
                         user.setLastName(userData[2]);
                     }
                 }
-                users.put(user.getId(), user);
+                users.put(user.getId(), user.getLastName());
             }
             return users;
 
@@ -72,21 +69,21 @@ public class Storage {
         System.out.println(users);
     }
 
-    public Map<Integer, Item> readItemsFile() {
+    public Map<Integer, ShopItem> readItemsFile() {
         try {
-            Scanner scanner = new Scanner(new File("C:\\Users\\Mariia_Palyga\\IdeaProjects\\OnlineShop\\src\\items.txt"));
+            Scanner scanner = new Scanner(new File(itemsFilePath));
             while (scanner.hasNextLine()) {
-                Item item = new Item();
+                ShopItem shopItem = new ShopItem();
                 String line = scanner.nextLine();
                 String[] data = line.split(",");
                 for (int i = 0; i < data.length; i++) {
                     if (!data[i].isEmpty()) {
-                        item.setId(Integer.parseInt(data[0]));
-                        item.setName(data[1]);
-                        item.setPrice(Double.parseDouble(data[2]));
+                        shopItem.setId(Integer.parseInt(data[0]));
+                        shopItem.setName(data[1]);
+                        shopItem.setPrice(Double.parseDouble(data[2]));
                     }
                 }
-                items.put(item.getId(), item);
+                items.put(shopItem.getId(), shopItem);
             }
             return items;
         } catch (FileNotFoundException e) {
