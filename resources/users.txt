@@ -1,0 +1,7 @@
+1, Ivan, Petrov
+2, Fedor, Ivanov
+3, Vladimir, Levin
+4, Marina, Svetlova
+5, Kseniia, Vostrikova
+6, Aleksandr, Fedorov
+7, Vladimir, Ilushin
