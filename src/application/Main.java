@@ -13,9 +13,7 @@ public class Main {
         try {
             inputManager.readFiles();
             inputManager.selectAction();
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
+        } catch (IllegalArgumentException | FileNotFoundException e) {
             e.printStackTrace();
         }
     }

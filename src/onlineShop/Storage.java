@@ -15,15 +15,14 @@ public final class Storage {
 
     public static Storage INSTANCE;
 
-    static {
+    public static Storage getINSTANCE() {
         try {
-            INSTANCE = new Storage();
+            if (INSTANCE == null) {
+                INSTANCE = new Storage();
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-    }
-
-    public static Storage getINSTANCE() {
         return INSTANCE;
     }
 
