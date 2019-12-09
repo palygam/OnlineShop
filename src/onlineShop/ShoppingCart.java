@@ -1,29 +1,35 @@
 package onlineShop;
 
-public class ShoppingCart implements CartModifiable {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+public class ShoppingCart {
+    private List<Integer> productsIds = new ArrayList<>();
+    private Map<Integer, List> cart = new HashMap<>();
 
-    @Override
-    public void addItem(int itemChoice) {
-        ShopItem productChoice = Storage.getItems().get(itemChoice);
-        if (Storage.getItems().containsKey(itemChoice)) {
-            Storage.getCart().add(productChoice);
-            System.out.println("You have " + Storage.getCart() + "in your shopping cart");
-        }
+    public Map<Integer, List> getCart() {
+        return cart;
+    }
+
+    public void setCart(Map<Integer, List> cart) {
+        this.cart = cart;
+    }
+
+    public List<Integer> getProductsIds() {
+        return productsIds;
+    }
+
+    public void setProductsIds(List<Integer> productsIds) {
+        this.productsIds = productsIds;
     }
 
     @Override
-    public void removeItem(int itemChoice) {
-        ShopItem productChoice = Storage.getItems().get(itemChoice);
-        if (Storage.getItems().containsKey(itemChoice)) {
-            Storage.getCart().remove(productChoice);
-            System.out.println("You have " + Storage.getCart() + " in your shopping cart");
-        }
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("ShoppingCart{");
+        sb.append("cart=").append(cart);
+        sb.append('}');
+        return sb.toString();
     }
-
-    public void printCart() {
-        System.out.println("There are following items in your cart: " + Storage.getCart());
-    }
-
 }
-

@@ -40,10 +40,9 @@ public class ShopItem {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                '}';
+        final StringBuilder sb = new StringBuilder("ShopItem{");
+        sb.append("id=").append(id);
+        sb.append('}');
+        return sb.toString();
     }
 }

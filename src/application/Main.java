@@ -3,21 +3,20 @@ package application;
 import inputManager.InputManager;
 import onlineShop.Storage;
 
+import java.io.FileNotFoundException;
+
 public class Main {
 
     public static void main(String[] args) {
-        Storage storage = new Storage();
+        Storage.getINSTANCE();
         InputManager inputManager = new InputManager();
-        storage.readUsersFile();
-        storage.readItemsFile();
         try {
-            inputManager.readUserId();
-            inputManager.readItemId();
+            inputManager.readFiles();
             inputManager.selectAction();
         } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 }
-
-

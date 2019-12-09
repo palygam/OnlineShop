@@ -7,7 +7,6 @@ public class User {
     private String FirstName;
     private String LastName;
 
-
     public int getId() {
         return id;
     }
@@ -34,11 +33,10 @@ public class User {
 
     @Override
     public String toString() {
-        return "OnlineShop.User{" +
-                "id=" + id +
-                ", FirstName='" + FirstName + '\'' +
-                ", LastName='" + LastName + '\'' +
-                '}';
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("id=").append(id);
+        sb.append('}');
+        return sb.toString();
     }
 
     @Override
